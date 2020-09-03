@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import firebase from 'firebase/app';
 import 'firebase/auth';
-require('dotenv').config();
+
 const config = {
   apiKey: process.env.VUE_APP_API_KEY,
   authDomain: process.env.VUE_APP_AUTH_DOMAIN,
