@@ -37,9 +37,9 @@ export default {
   plugins: [],
   /*
    * Router settings
-  */
+   */
   router: {
-    middleware: ['authenticated']
+    middleware: ['authenticated'],
   },
   /*
    ** Auto import components
@@ -64,4 +64,4 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
-}
+};
