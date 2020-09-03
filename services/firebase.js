@@ -13,6 +13,9 @@ const config = {
   measurementId: process.env.VUE_APP_MEASUREMENT_ID,
 };
 
+// eslint-disable-next-line no-console
+console.log(process.env.VUE_APP_API_KEY);
+
 // eslint-disable-next-line no-unused-expressions
 !firebase.apps.length ? firebase.initializeApp(config) : '';
 
