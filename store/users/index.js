@@ -1,5 +1,5 @@
 import Cookie from 'js-cookie';
-import { auth } from '@/services/firebase';
+import { firebase, auth } from '@/services/firebase';
 
 export const state = () => ({
   user: null,
@@ -24,31 +24,26 @@ export const actions = {
       throw error;
     }
   },
-  async ingresarFacebook() {
-    const provider = new auth.FacebookAuthProvider();
+  async ingresarGoogle({ commit }) {
+    const provider = new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({
       display: 'popup',
     });
     auth.languageCode = 'es_AR';
     try {
       await auth.signInWithPopup(provider);
+      const token = await auth.currentUser.getIdToken();
+      const { email, uid } = auth.currentUser;
+      Cookie.set('access_token', token);
+      commit('SET_USER', { email, uid });
     } catch (error) {
       this.mostrarError('Ocurrió un error validando tu cuenta.');
     }
   },
-  async ingresarGoogle() {
-    const provider = new auth.GoogleAuthProvider();
-    provider.setCustomParameters({
-      display: 'popup',
-    });
-    auth.languageCode = 'es_AR';
-    try {
-      await auth.signInWithPopup(provider);
-    } catch (error) {
-      this.mostrarError('Ocurrió un error validando tu cuenta.');
-    }
-  },
-  logout({ commit }) {
+  async logout({ commit }) {
+    await auth.signOut();
+    await Cookie.remove('access_token');
+    location.href = '/';
     Cookie.remove('access_token');
     commit('SET_USER', {});
   },

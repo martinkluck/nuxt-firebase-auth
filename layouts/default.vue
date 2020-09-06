@@ -22,8 +22,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import { auth } from '@/services/firebase';
-import Cookie from 'js-cookie';
 export default {
   data() {
     return {};
@@ -33,11 +31,6 @@ export default {
   },
   methods: {
     ...mapActions('users', ['logout']),
-    async logout() {
-      await auth.signOut();
-      await Cookie.remove('access_token');
-      location.href = '/';
-    },
   },
 };
 </script>

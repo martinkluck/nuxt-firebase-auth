@@ -51,10 +51,14 @@
     </form>
     <div class="flex items-center justify-center">
       <button
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        class="hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         @click="googleLogin"
       >
-        Google
+        <img
+          class="h-10 w-10"
+          src="~/assets/Google__G__Logo.svg"
+          alt="Google"
+        />
       </button>
     </div>
   </div>
@@ -73,7 +77,6 @@ export default {
   },
   methods: {
     async login() {
-      // eslint-disable-next-line no-console
       await this.$store
         .dispatch('users/login', this.account)
         .catch((error) => (this.error = error));
