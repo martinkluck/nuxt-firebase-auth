@@ -14,7 +14,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: process.env.npm_package_name || 'Login con Nuxt y Firebase',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -64,8 +64,8 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
-  env: {
-    apiKey: process.env.VUE_APP_API_KEY,
+  privateRuntimeConfig: {
+    apiKey: '${VUE_APP_API_KEY}',
     authDomain: process.env.VUE_APP_AUTH_DOMAIN,
     databaseURL: process.env.VUE_APP_DATABASE_URL,
     projectId: process.env.VUE_APP_PROJECT_ID,

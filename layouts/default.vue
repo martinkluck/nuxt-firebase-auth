@@ -1,8 +1,6 @@
 <template>
   <div>
-    <Header
-      class="flex justify-between items-center wrap py-4 bg-gray-500 h-10"
-    >
+    <Header>
       <h1>Welcome</h1>
       <button
         v-if="getUser"
