@@ -11,11 +11,13 @@
     "lint": "yarn lint:js"
   },
   "dependencies": {
+    "@nuxtjs/color-mode": "^1.0.3",
     "cookieparser": "^0.1.0",
     "firebase": "^7.19.1",
     "js-cookie": "^2.2.1",
     "jwt-decode": "^2.2.0",
-    "nuxt": "^2.14.0"
+    "nuxt": "^2.14.0",
+    "tailwindcss-dark-mode": "^1.1.6"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",

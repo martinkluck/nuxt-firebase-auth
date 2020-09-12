@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header>
-      <h1>Welcome</h1>
+      <ColorMode></ColorMode>
       <button
         v-if="getUser"
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -20,6 +20,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import ColorMode from '@/components/ColorMode';
 export default {
   data() {
     return {};
@@ -30,7 +31,15 @@ export default {
   methods: {
     ...mapActions('users', ['logout']),
   },
+  components: { ColorMode },
 };
 </script>
 
-<style></style>
+<style>
+.dark-mode {
+  @apply text-white bg-black;
+}
+.light-mode {
+  @apply text-black bg-white;
+}
+</style>

@@ -54,6 +54,7 @@ export default {
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode',
   ],
   /*
    ** Nuxt.js modules
@@ -64,8 +65,8 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
-  privateRuntimeConfig: {
-    apiKey: '${VUE_APP_API_KEY}',
+  env: {
+    apiKey: process.env.VUE_APP_API_KEY,
     authDomain: process.env.VUE_APP_AUTH_DOMAIN,
     databaseURL: process.env.VUE_APP_DATABASE_URL,
     projectId: process.env.VUE_APP_PROJECT_ID,
