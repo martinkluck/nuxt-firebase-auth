@@ -16,7 +16,7 @@
     "firebase": "^8.0.1",
     "js-cookie": "^2.2.1",
     "jwt-decode": "^2.2.0",
-    "nuxt": "^2.14.0",
+    "nuxt": "^2.15.0",
     "tailwindcss-dark-mode": "^1.1.6"
   },
   "devDependencies": {
