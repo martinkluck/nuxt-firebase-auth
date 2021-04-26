@@ -12,6 +12,12 @@
             alt="Google"
           />
         </button>
+        <button
+          class="hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          @click="facebookLogin"
+        >
+          FACEBOOK
+        </button>
       </div>
       <form @submit.prevent="login">
         <div class="mb-4">
@@ -85,6 +91,13 @@ export default {
       this.account = 'google';
       await this.$store
         .dispatch('users/ingresarGoogle', this.account)
+        .catch((error) => (this.error = error));
+      this.$router.push('/admin');
+    },
+    async facebookLogin() {
+      this.account = 'facebook';
+      await this.$store
+        .dispatch('users/ingresarFacebook', this.account)
         .catch((error) => (this.error = error));
       this.$router.push('/admin');
     },

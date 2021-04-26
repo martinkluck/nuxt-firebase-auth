@@ -40,6 +40,24 @@ export const actions = {
       this.mostrarError('Ocurrió un error validando tu cuenta.');
     }
   },
+  async ingresarFacebook({ commit }) {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    provider.setCustomParameters({
+      display: 'popup',
+    });
+    auth.languageCode = 'es_AR';
+    try {
+      const result = await auth.signInWithPopup(provider);
+      // eslint-disable-next-line no-console
+      console.log(result);
+      const token = await auth.currentUser.getIdToken();
+      const { email, uid } = auth.currentUser;
+      Cookie.set('access_token', token);
+      commit('SET_USER', { email, uid });
+    } catch (error) {
+      this.mostrarError('Ocurrió un error validando tu cuenta.');
+    }
+  },
   async logout({ commit }) {
     await auth.signOut();
     await Cookie.remove('access_token');
