@@ -31,12 +31,16 @@ export const actions = {
     });
     auth.languageCode = 'es_AR';
     try {
-      await auth.signInWithPopup(provider);
+      const result = await auth.signInWithPopup(provider);
+      // eslint-disable-next-line no-console
+      console.log(result);
       const token = await auth.currentUser.getIdToken();
       const { email, uid } = auth.currentUser;
       Cookie.set('access_token', token);
       commit('SET_USER', { email, uid });
     } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
       this.mostrarError('Ocurrió un error validando tu cuenta.');
     }
   },
@@ -55,6 +59,8 @@ export const actions = {
       Cookie.set('access_token', token);
       commit('SET_USER', { email, uid });
     } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
       this.mostrarError('Ocurrió un error validando tu cuenta.');
     }
   },
