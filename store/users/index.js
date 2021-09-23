@@ -60,7 +60,7 @@ export const actions = {
       commit('SET_USER', { email, uid });
     } catch (error) {
       // eslint-disable-next-line no-console
-      console.error(error);
+      console.error(error, auth.currentUser);
       this.mostrarError('Ocurrió un error validando tu cuenta.');
     }
   },

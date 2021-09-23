@@ -1,3 +1,5 @@
+import path from 'path';
+import fs from 'fs';
 export default {
   /*
    ** Nuxt rendering mode
@@ -74,5 +76,11 @@ export default {
     messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
     appId: process.env.VUE_APP_ID,
     measurementId: process.env.VUE_APP_MEASUREMENT_ID,
+  },
+  server: {
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
+      cert: fs.readFileSync(path.resolve(__dirname, 'server.crt')),
+    },
   },
 };
